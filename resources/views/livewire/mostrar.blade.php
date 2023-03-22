@@ -13,6 +13,15 @@
                         <h1 class="text-xl">Nombre de la escuela </h1>
                         <p class="text-lg whitespace-normal text-justify capitalize-first">{{ strip_tags($Nombre) }}</p>
                     </div>
+                    {{-- <div class="mb-4">
+                        <h1 class="text-xl">Asesor </h1>
+                        <p class="text-lg whitespace-normal text-justify capitalize-first">{{ strip_tags($asesor) }}</p>
+                    </div> --}}
+                    <div class="mb-4 w-96">
+                        <h1 class="text-xl">Observaciones</h1>
+                        <p class="text-sm whitespace-normal text-justify capitalize-first">{{ strip_tags($comentario) }}
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <div class="mb-4">

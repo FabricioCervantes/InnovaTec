@@ -10,10 +10,11 @@
         <div class="overflow-x-auto p-5">
             <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                 <h2 class="font-semibold text-3xl mb-5 text-gray-800 leading-tight">
-                    {{ __('Proyectos Innovatec') }}
+                    {{ __('Proyectos Innovatecmn') }}
                 </h2>
                 <div class="overflow-hidden shadow-xl rounded-lg">
                     <div class="pt-5 px-5 flex gap-10 bg-slate-50">
+
                         <div class="flex items-center">
                             <span>Mostrar</span>
                             <select wire:model="cant"

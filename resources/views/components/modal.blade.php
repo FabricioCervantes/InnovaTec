@@ -8,7 +8,7 @@
         'md' => 'sm:max-w-md',
         'lg' => 'sm:max-w-lg',
         'xl' => 'sm:max-w-xl',
-        '2xl' => 'sm:max-w-3xl',
+        '2xl' => 'sm:max-w-5xl',
     ][$maxWidth ?? '2xl'];
 @endphp
 

@@ -10,7 +10,7 @@ use Livewire\WithPagination;
 class Proyectos extends Component
 {
     use WithPagination;
-    public $NombreCorto, $DescripciónProblematica, $Objetivo, $ResultadosAlcanzar, $Nombre, $Calificacion;
+    public $NombreCorto, $DescripciónProblematica, $Objetivo, $ResultadosAlcanzar, $Nombre, $Calificacion, $comentario, $asesor;
     public $Usuario;
     public $search;
     public $cant = 10;
@@ -41,32 +41,42 @@ class Proyectos extends Component
 
     public function mostrar($id)
     {
-        $proyecto = DB::table('Proyecto')
-            ->join('Escuelas', 'Proyecto.IdEscuela', '=', 'Escuelas.IdEscuela')
-            ->leftjoin('ProyectoCalificacionesDetalle', 'Proyecto.Id', '=', 'ProyectoCalificacionesDetalle.IdProyecto')
-            ->leftjoin('ProyectoAlumnos', 'Proyecto.Id', '=', 'ProyectoAlumnos.IdProyecto')
-            ->leftjoin('Alumno', 'ProyectoAlumnos.IdAlumno', '=', 'Alumno.Id')
-            // ->join('ProyectoAsesores', 'Proyecto.Id', '=', 'ProyectoAsesores.IdProyecto')
-            // ->join('Asesor', 'ProyectoAsesores.IdAsesor', '=', 'Asesor.Id')
-            ->where('Proyecto.Id', $id)
-            ->select('Proyecto.NombreCorto', 'Proyecto.DescripcionProblematica', 'Proyecto.Objetivo', 'Proyecto.ResultadosAlcanzar', 'Escuelas.Nombre', 'ProyectoCalificacionesDetalle.Calificacion', 'Alumno.Nombre as alumnoNombre', 'Alumno.ApellidoPaterno', 'Alumno.ApellidoMaterno',)
-            ->get();
+        $proyecto1 = collect(
+            Proyecto::join('Escuelas', 'Proyecto.IdEscuela', '=', 'Escuelas.IdEscuela')
+                ->leftjoin('ProyectoCalificacionesDetalle', 'Proyecto.Id', '=', 'ProyectoCalificacionesDetalle.IdProyecto')
+                ->leftjoin('ProyectoAlumnos', 'Proyecto.Id', '=', 'ProyectoAlumnos.IdProyecto')
+                ->leftjoin('Alumno', 'ProyectoAlumnos.IdAlumno', '=', 'Alumno.Id')
+                ->leftJoin('EvaluacionProyectosRetroalimentacion', 'Proyecto.Id', '=', 'EvaluacionProyectosRetroalimentacion.IdProyecto')
+                ->join('ProyectoAsesores', 'Proyecto.Id', '=', 'ProyectoAsesores.IdProyecto')
+                ->join('Asesor', 'ProyectoAsesores.IdAsesor', '=', 'Asesor.Id')
+                ->where('Proyecto.Id', $id)
+                ->select('Proyecto.NombreCorto', 'Proyecto.DescripcionProblematica', 'Proyecto.Objetivo', 'Proyecto.ResultadosAlcanzar', 'Escuelas.Nombre', 'ProyectoCalificacionesDetalle.Calificacion', 'Alumno.Nombre as alumnoNombre', 'Alumno.ApellidoPaterno', 'Alumno.ApellidoMaterno', 'EvaluacionProyectosRetroalimentacion.Comentario', 'Asesor.Nombre as asesorNombre', 'Asesor.ApellidoPaterno as asesorPaterno', 'Asesor.ApellidoMaterno as asesorMaterno')
+                ->get()
+        );
+
+        $proyecto = $proyecto1->unique('ApellidoPaterno');
+        $proyecto->values()->all();
+
         $this->NombreCorto = $proyecto[0]->NombreCorto;
         $this->Nombre = $proyecto[0]->Nombre;
         $this->DescripciónProblematica = $proyecto[0]->DescripcionProblematica;
         $this->Objetivo = $proyecto[0]->Objetivo;
         $this->ResultadosAlcanzar = $proyecto[0]->ResultadosAlcanzar;
         $this->Calificacion = $proyecto[0]->Calificacion;
+        $this->comentario = $proyecto[0]->Comentario;
+        // $this->asesor = $proyecto[0]->asesorNombre +  $proyecto[0]->asesorNombre +  $proyecto[0]->asesorNombre;
 
         if (!empty($this->Usuario)) {
             $this->Usuario = array();
         }
-        if (empty($this->Calificacion) or empty($this->DescripciónProblematica) or empty($this->Objetivo) or empty($this->ResultadosAlcanzar)) {
+        if (empty($this->Calificacion) or empty($this->DescripciónProblematica) or empty($this->Objetivo) or empty($this->ResultadosAlcanzar or empty($this->comentario))) {
             $this->Calificacion = "No disponible";
             $this->DescripciónProblematica = "No disponible";
             $this->Objetivo = "No disponible";
             $this->ResultadosAlcanzar = "No disponible";
+            $this->comentario = "No disponible";
         }
+
 
         foreach ($proyecto as $proy) {
             $this->Usuario[] = "$proy->alumnoNombre $proy->ApellidoPaterno $proy->ApellidoMaterno";

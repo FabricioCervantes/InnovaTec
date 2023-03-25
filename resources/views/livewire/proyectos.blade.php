@@ -32,49 +32,49 @@
                         <x-secondary-button>Buscar</x-secondary-button>
                     </div>
 
-                    {{-- @if ($proyectos->count()) --}}
-                    <table class="min-w-full text-left text-sm font-light">
-                        <thead class="border-b font-medium bg-slate-50">
-                            <tr>
-                                <th scope="col" class="px-6 py-4">Nombre</th>
-                                <th scope="col" class="px-6 py-4">Descripción</th>
-                                <th scope="col" class="px-6 py-4">Institución</th>
-                                <th scope="col" class="px-6 py-4">Calificación</th>
-                                <th scope="col" class="px-6 py-4">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{-- @foreach ($proyectos as $item)
+                    @if ($proyectos->count())
+                        <table class="min-w-full text-left text-sm font-light">
+                            <thead class="border-b font-medium bg-slate-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-4">Nombre</th>
+                                    <th scope="col" class="px-6 py-4">Descripción</th>
+                                    <th scope="col" class="px-6 py-4">Institución</th>
+                                    <th scope="col" class="px-6 py-4">Calificación</th>
+                                    <th scope="col" class="px-6 py-4">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($proyectos as $item)
                                     <tr class="border-b bg-white">
                                         <td class="whitespace-nowrap px-10 py-4 text-xl">{{ $item->NombreCorto }}</td>
                                         <td class="px-10 py-4 capitalize-first max-w-xs">
                                             {{ $item->NombreDescriptivo }}
                                         </td>
-                                        <td class="whitespace-nowrap px-10 py-4">{{ $item->Nombre }}</td>
-                                        <td class="whitespace-nowrap px-10 py-4">{{ $item->Calificacion }}</td>
+                                        {{-- <td class="whitespace-nowrap px-10 py-4">{{ $item->Nombre }}</td> --}}
+                                        {{-- <td class="whitespace-nowrap px-10 py-4">{{ $item->Calificacion }}</td> --}}
                                         <td class="px-10 py-4">
                                             <x-secondary-button wire:click="mostrar('{{ $item->Id }}')"
                                                 type="button">Ver más
                                             </x-secondary-button>
                                         </td>
                                     </tr>
-                                @endforeach --}}
-                        </tbody>
-                    </table>
-                    {{-- @else --}}
-                    <div class="p-5">No existe ningún registro coincidente.</div>
-                    {{-- @endif --}}
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <div class="p-5">No existe ningún registro coincidente.</div>
+                    @endif
                 </div>
             </div>
         </div>
         @if ($modal)
             @include('livewire.mostrar')
         @endif
-        {{-- @if ($proyectos->hasPages())
+        @if ($proyectos->hasPages())
             <div class="p-5">
                 {{ $proyectos->links() }}
             </div>
-        @endif --}}
+        @endif
     </div>
 
 

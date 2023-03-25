@@ -12,9 +12,8 @@
                 <h2 class="font-semibold text-3xl mb-5 text-gray-800 leading-tight">
                     {{ __('Proyectos Innovatecmn') }}
                 </h2>
-                <div class="overflow-hidden shadow-xl rounded-lg hidden md:block">
+                <div class="overflow-hidden shadow-xl rounded-lg">
                     <div class="pt-5 px-5 flex gap-10 bg-slate-50">
-
                         <div class="flex items-center">
                             <span>Mostrar</span>
                             <select wire:model="cant"
@@ -68,7 +67,7 @@
                 <div class="md:hidden">
                     <x-input wire:model="search" placeholder="Buscar por nombre o escuela" class="w-full p-2 mb-5">
                     </x-input>
-                    <div class="grid grid-cols-1 gap-4 md:hidden">
+                    <div class="grid grid-cols-1 gap-4 hidden">
                         @foreach ($proyectos as $item)
                             <div class="bg-white p-4 rounded-lg shadow">
                                 <div class="flex flex-col gap-2 text-sm">
@@ -76,7 +75,6 @@
                                     <div class="text-justify"><b>Descripción: </b>{{ $item->NombreDescriptivo }}</div>
                                     <div><b>Institución: </b>{{ $item->Nombre }}</div>
                                     <div><b>Calificación: </b>{{ $item->Calificacion }}</div>
-
                                     <x-secondary-button wire:click="mostrar('{{ $item->Id }}')" type="button"
                                         class="w-1/3">Ver más
                                     </x-secondary-button>

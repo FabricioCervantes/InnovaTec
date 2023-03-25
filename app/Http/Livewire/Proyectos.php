@@ -43,15 +43,15 @@ class Proyectos extends Component
     public function mostrar($id)
     {
         $proyecto1 = collect(
-            Proyecto::join('Escuelas', 'Proyecto.IdEscuela', '=', 'Escuelas.IdEscuela')
-                ->leftjoin('ProyectoCalificacionesDetalle', 'Proyecto.Id', '=', 'ProyectoCalificacionesDetalle.IdProyecto')
-                ->leftjoin('ProyectoAlumnos', 'Proyecto.Id', '=', 'ProyectoAlumnos.IdProyecto')
-                ->leftjoin('Alumno', 'ProyectoAlumnos.IdAlumno', '=', 'Alumno.Id')
-                ->leftJoin('EvaluacionProyectosRetroalimentacion', 'Proyecto.Id', '=', 'EvaluacionProyectosRetroalimentacion.IdProyecto')
-                ->join('ProyectoAsesores', 'Proyecto.Id', '=', 'ProyectoAsesores.IdProyecto')
-                ->join('Asesor', 'ProyectoAsesores.IdAsesor', '=', 'Asesor.Id')
-                ->where('Proyecto.Id', $id)
-                ->select('Proyecto.NombreCorto', 'Proyecto.DescripcionProblematica', 'Proyecto.Objetivo', 'Proyecto.ResultadosAlcanzar', 'Escuelas.Nombre', 'ProyectoCalificacionesDetalle.Calificacion', 'Alumno.Nombre as alumnoNombre', 'Alumno.ApellidoPaterno', 'Alumno.ApellidoMaterno', 'EvaluacionProyectosRetroalimentacion.Comentario', 'Asesor.Nombre as asesorNombre', 'Asesor.ApellidoPaterno as asesorPaterno', 'Asesor.ApellidoMaterno as asesorMaterno')
+            Proyecto::join('escuelas', 'proyecto.IdEscuela', '=', 'escuelas.IdEscuela')
+                ->leftjoin('proyectocalificacionesdetalle', 'proyecto.Id', '=', 'proyectocalificacionesdetalle.IdProyecto')
+                ->leftjoin('proyectoalumnos', 'Proyecto.Id', '=', 'proyectoalumnos.IdProyecto')
+                ->leftjoin('alumno', 'proyectoalumnos.IdAlumno', '=', 'alumno.Id')
+                ->leftJoin('evaluacionproyectosretroalimentacion', 'Proyecto.Id', '=', 'evaluacionproyectosretroalimentacion.IdProyecto')
+                ->join('proyectoasesores', 'Proyecto.Id', '=', 'proyectoasesores.IdProyecto')
+                ->join('asesor', 'proyectoasesores.Idasesor', '=', 'asesor.Id')
+                ->where('proyecto.Id', $id)
+                ->select('proyecto.NombreCorto', 'proyecto.DescripcionProblematica', 'proyecto.Objetivo', 'proyecto.ResultadosAlcanzar', 'Escuelas.Nombre', 'proyectocalificacionesdetalle.Calificacion', 'alumno.Nombre as alumnoNombre', 'alumno.ApellidoPaterno', 'alumno.ApellidoMaterno', 'evaluacionproyectosretroalimentacion.Comentario', 'asesor.Nombre as asesorNombre', 'asesor.ApellidoPaterno as asesorPaterno', 'asesor.ApellidoMaterno as asesorMaterno')
                 ->get()
         );
 

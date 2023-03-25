@@ -21,12 +21,12 @@ class Proyectos extends Component
     {
         $proyectos = Proyecto::
             // ->leftjoin('proyectocalificacionesdetalle', 'proyecto.Id', 'proyectocalificacionesdetalle.IdProyecto')
-            // ->where('NombreCorto', 'like', '%' . $this->search . '%')
-            // ->orWhere('NombreDescriptivo', 'like', '%' . $this->search . '%')
+            where('NombreCorto', 'like', '%' . $this->search . '%')
+            ->orWhere('NombreDescriptivo', 'like', '%' . $this->search . '%')
             // ->orWhere('Nombre', 'like', '%' . $this->search . '%')
             // ->whereNotNull('NombreCorto')
             // ->orderBy('NombreCorto')
-            select('proyecto.NombreCorto', 'proyecto.Id', 'proyecto.NombreDescriptivo')
+            ->select('proyecto.NombreCorto', 'proyecto.Id', 'proyecto.NombreDescriptivo')
             ->paginate($this->cant);
 
 

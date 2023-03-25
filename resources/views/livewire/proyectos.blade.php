@@ -64,7 +64,7 @@
                         <div class="p-5">No existe ningún registro coincidente.</div>
                     @endif
                 </div>
-                <div class="md:hidden">
+                <div class="sm:hidden">
                     <x-input wire:model="search" placeholder="Buscar por nombre o escuela" class="w-full p-2 mb-5">
                     </x-input>
                     <div class="grid grid-cols-1 gap-4">

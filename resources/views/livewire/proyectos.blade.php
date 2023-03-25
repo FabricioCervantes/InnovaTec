@@ -1,4 +1,4 @@
-<div>
+{{-- <div>
     <x-slot name="header">
         <div class="flex items-center justify-center">
             <img src="{{ asset('/build/assets/img/logo.png') }}" class="h-16" alt="Logo Tec nacional">
@@ -78,4 +78,8 @@
     </div>
 
 
+</div> --}}
+
+<div>
+    Hello world
 </div>

@@ -12,7 +12,7 @@
                 <h2 class="font-semibold text-3xl mb-5 text-gray-800 leading-tight">
                     {{ __('Proyectos Innovatecmn') }}
                 </h2>
-                <div class="overflow-hidden shadow-xl rounded-lg hidden md:block">
+                <div class="overflow-hidden shadow-xl rounded-lg hidden sm:block">
                     <div class="pt-5 px-5 flex gap-10 bg-slate-50">
                         <div class="flex items-center">
                             <span>Mostrar</span>

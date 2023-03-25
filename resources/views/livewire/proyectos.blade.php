@@ -1,4 +1,4 @@
-{{-- <div>
+<div>
     <x-slot name="header">
         <div class="flex items-center justify-center">
             <img src="{{ asset('/build/assets/img/logo.png') }}" class="h-16" alt="Logo Tec nacional">
@@ -44,7 +44,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($proyectos as $item)
+                                {{-- @foreach ($proyectos as $item)
                                     <tr class="border-b bg-white">
                                         <td class="whitespace-nowrap px-10 py-4 text-xl">{{ $item->NombreCorto }}</td>
                                         <td class="px-10 py-4 capitalize-first max-w-xs">
@@ -58,7 +58,7 @@
                                             </x-secondary-button>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @endforeach --}}
                             </tbody>
                         </table>
                     @else
@@ -78,8 +78,4 @@
     </div>
 
 
-</div> --}}
-
-<div>
-    Hello world
 </div>

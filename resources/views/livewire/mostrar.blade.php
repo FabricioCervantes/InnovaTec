@@ -1,8 +1,8 @@
 <div>
-    <x-dialog-modal maxWidth="2xl" wire:model="modal" class="flex items-center">
+    <x-dialog-modal maxWidth="2xl" wire:model="modal" class="">
         <x-slot name="title">Información del proyecto</x-slot>
         <x-slot name="content">
-            <div class="flex gap-10 justify-between">
+            <div class="flex gap-2 sm:gap-10 sm:justify-between">
                 <div>
                     <div class="mb-4">
                         <h1 class="text-xl">Nombre del proyecto </h1>
@@ -17,13 +17,10 @@
                         <h1 class="text-xl">Asesor </h1>
                         <p class="text-lg whitespace-normal text-justify capitalize-first">{{ strip_tags($asesor) }}</p>
                     </div> --}}
-                    <div class="mb-4 w-96">
-                        <h1 class="text-xl">Observaciones</h1>
-                        <p class="text-sm whitespace-normal text-justify capitalize-first">{{ strip_tags($comentario) }}
-                        </p>
-                    </div>
+
                 </div>
                 <div>
+
                     <div class="mb-4">
                         <h1 class="text-lg">Calificación </h1>
                         <p class="text-xl whitespace-normal text-justify capitalize-first">
@@ -37,6 +34,11 @@
                         @endforeach
                     </div>
                 </div>
+            </div>
+            <div class="mb-4">
+                <h1 class="text-2xl">Observaciones</h1>
+                <p class="text-sm whitespace-normal text-justify capitalize-first">{{ strip_tags($comentario) }}
+                </p>
             </div>
             <div class="mb-4">
                 <h1 class="text-2xl">Descripción de la problemática </h1>

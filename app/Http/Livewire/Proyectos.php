@@ -51,7 +51,7 @@ class Proyectos extends Component
                 ->join('proyectoasesores', 'Proyecto.Id', '=', 'proyectoasesores.IdProyecto')
                 ->join('asesor', 'proyectoasesores.Idasesor', '=', 'asesor.Id')
                 ->where('proyecto.Id', $id)
-                ->select('proyecto.NombreCorto', 'proyecto.DescripcionProblematica', 'proyecto.Objetivo', 'proyecto.ResultadosAlcanzar', 'Escuelas.Nombre', 'proyectocalificacionesdetalle.Calificacion', 'alumno.Nombre as alumnoNombre', 'alumno.ApellidoPaterno', 'alumno.ApellidoMaterno', 'evaluacionproyectosretroalimentacion.Comentario', 'asesor.Nombre as asesorNombre', 'asesor.ApellidoPaterno as asesorPaterno', 'asesor.ApellidoMaterno as asesorMaterno')
+                ->select('proyecto.NombreCorto', 'proyecto.DescripcionProblematica', 'proyecto.Objetivo', 'proyecto.ResultadosAlcanzar', 'escuelas.Nombre', 'proyectocalificacionesdetalle.Calificacion', 'alumno.Nombre as alumnoNombre', 'alumno.ApellidoPaterno', 'alumno.ApellidoMaterno', 'evaluacionproyectosretroalimentacion.Comentario', 'asesor.Nombre as asesorNombre', 'asesor.ApellidoPaterno as asesorPaterno', 'asesor.ApellidoMaterno as asesorMaterno')
                 ->get()
         );
 

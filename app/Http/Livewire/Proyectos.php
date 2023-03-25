@@ -48,7 +48,7 @@ class Proyectos extends Component
                 ->leftjoin('proyectoalumnos', 'Proyecto.Id', '=', 'proyectoalumnos.IdProyecto')
                 ->leftjoin('alumno', 'proyectoalumnos.IdAlumno', '=', 'alumno.Id')
                 ->leftJoin('evaluacionproyectosretroalimentacion', 'Proyecto.Id', '=', 'evaluacionproyectosretroalimentacion.IdProyecto')
-                ->join('proyectoasesores', 'Proyecto.Id', '=', 'proyectoasesores.IdProyecto')
+                ->join('proyectoasesores', 'proyecto.Id', '=', 'proyectoasesores.IdProyecto')
                 ->join('asesor', 'proyectoasesores.Idasesor', '=', 'asesor.Id')
                 ->where('proyecto.Id', $id)
                 ->select('proyecto.NombreCorto', 'proyecto.DescripcionProblematica', 'proyecto.Objetivo', 'proyecto.ResultadosAlcanzar', 'escuelas.Nombre', 'proyectocalificacionesdetalle.Calificacion', 'alumno.Nombre as alumnoNombre', 'alumno.ApellidoPaterno', 'alumno.ApellidoMaterno', 'evaluacionproyectosretroalimentacion.Comentario', 'asesor.Nombre as asesorNombre', 'asesor.ApellidoPaterno as asesorPaterno', 'asesor.ApellidoMaterno as asesorMaterno')

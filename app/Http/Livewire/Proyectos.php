@@ -23,8 +23,8 @@ class Proyectos extends Component
             ->leftjoin('escuelas', 'proyecto.IdEscuela', 'escuelas.idEscuela')
             ->where('NombreCorto', 'like', '%' . $this->search . '%')
             ->orWhere('NombreDescriptivo', 'like', '%' . $this->search . '%')
-            // ->orWhere('Nombre', 'like', '%' . $this->search . '%')
-            // ->whereNotNull('NombreCorto')
+            ->orWhere('Nombre', 'like', '%' . $this->search . '%')
+            ->whereNotNull('NombreCorto')
             ->orderBy('NombreCorto')
             ->select('proyecto.NombreCorto', 'proyecto.Id', 'proyecto.NombreDescriptivo', 'proyectocalificacionesdetalle.Calificacion', 'escuelas.Nombre')
             ->paginate($this->cant);

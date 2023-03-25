@@ -50,7 +50,7 @@
                                         <td class="px-10 py-4 capitalize-first max-w-xs">
                                             {{ $item->NombreDescriptivo }}
                                         </td>
-                                        <td class="whitespace-nowrap px-10 py-4">Escuela</td>
+                                        <td class="whitespace-nowrap px-10 py-4">{{ $item->Nombre }}</td>
                                         <td class="whitespace-nowrap px-10 py-4">{{ $item->Calificacion }}</td>
                                         <td class="px-10 py-4">
                                             <x-secondary-button wire:click="mostrar('{{ $item->Id }}')"

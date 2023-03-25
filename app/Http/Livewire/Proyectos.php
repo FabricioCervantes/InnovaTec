@@ -26,7 +26,7 @@ class Proyectos extends Component
             ->orWhere('NombreDescriptivo', 'like', '%' . $this->search . '%')
             // ->orWhere('Nombre', 'like', '%' . $this->search . '%')
             // ->whereNotNull('NombreCorto')
-            // ->orderBy('NombreCorto')
+            ->orderBy('NombreCorto')
             ->select('proyecto.NombreCorto', 'proyecto.Id', 'proyecto.NombreDescriptivo')
             ->paginate($this->cant);
 

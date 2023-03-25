@@ -67,7 +67,7 @@
                 <div class="md:hidden">
                     <x-input wire:model="search" placeholder="Buscar por nombre o escuela" class="w-full p-2 mb-5">
                     </x-input>
-                    <div class="grid grid-cols-1 gap-4 hidden">
+                    <div class="grid grid-cols-1 gap-4">
                         @foreach ($proyectos as $item)
                             <div class="bg-white p-4 rounded-lg shadow">
                                 <div class="flex flex-col gap-2 text-sm">

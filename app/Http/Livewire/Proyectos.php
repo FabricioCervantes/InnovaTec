@@ -19,15 +19,15 @@ class Proyectos extends Component
 
     public function render()
     {
-        $proyectos = Proyecto::join('escuelas', 'proyecto.IdEscuela', 'escuelas.IdEscuela')
-            ->leftjoin('proyectocalificacionesdetalle', 'proyecto.Id', 'proyectocalificacionesdetalle.IdProyecto')
-            ->where('NombreCorto', 'like', '%' . $this->search . '%')
-            ->orWhere('NombreDescriptivo', 'like', '%' . $this->search . '%')
-            ->orWhere('Nombre', 'like', '%' . $this->search . '%')
-            ->whereNotNull('NombreCorto')
-            ->orderBy('NombreCorto')
-            ->select('proyecto.NombreCorto', 'proyecto.Id', 'proyecto.NombreDescriptivo', 'escuelas.Nombre', 'proyectocalificacionesdetalle.Calificacion')
-            ->paginate($this->cant);
+        $proyectos = Proyecto::
+            // ->leftjoin('proyectocalificacionesdetalle', 'proyecto.Id', 'proyectocalificacionesdetalle.IdProyecto')
+            // ->where('NombreCorto', 'like', '%' . $this->search . '%')
+            // ->orWhere('NombreDescriptivo', 'like', '%' . $this->search . '%')
+            // ->orWhere('Nombre', 'like', '%' . $this->search . '%')
+            // ->whereNotNull('NombreCorto')
+            // ->orderBy('NombreCorto')
+            // ->select('proyecto.NombreCorto', 'proyecto.Id', 'proyecto.NombreDescriptivo', 'escuelas.Nombre', 'proyectocalificacionesdetalle.Calificacion')
+            paginate($this->cant);
 
 
         // $proyectos = DB::table('proyecto')->select('NombreCorto', 'Id', 'NombreDescriptivo')->paginate($this->cant);

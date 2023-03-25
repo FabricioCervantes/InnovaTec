@@ -45,9 +45,9 @@ class Proyectos extends Component
         $proyecto1 = collect(
             Proyecto::join('escuelas', 'proyecto.IdEscuela', '=', 'escuelas.IdEscuela')
                 ->leftjoin('proyectocalificacionesdetalle', 'proyecto.Id', '=', 'proyectocalificacionesdetalle.IdProyecto')
-                ->leftjoin('proyectoalumnos', 'Proyecto.Id', '=', 'proyectoalumnos.IdProyecto')
+                ->leftjoin('proyectoalumnos', 'proyecto.Id', '=', 'proyectoalumnos.IdProyecto')
                 ->leftjoin('alumno', 'proyectoalumnos.IdAlumno', '=', 'alumno.Id')
-                ->leftJoin('evaluacionproyectosretroalimentacion', 'Proyecto.Id', '=', 'evaluacionproyectosretroalimentacion.IdProyecto')
+                ->leftJoin('evaluacionproyectosretroalimentacion', 'proyecto.Id', '=', 'evaluacionproyectosretroalimentacion.IdProyecto')
                 ->join('proyectoasesores', 'proyecto.Id', '=', 'proyectoasesores.IdProyecto')
                 ->join('asesor', 'proyectoasesores.Idasesor', '=', 'asesor.Id')
                 ->where('proyecto.Id', $id)

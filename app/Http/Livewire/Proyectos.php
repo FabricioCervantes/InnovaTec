@@ -22,6 +22,7 @@ class Proyectos extends Component
         $proyectos = Proyecto::join('Escuelas', 'Proyecto.IdEscuela', '=', 'Escuelas.IdEscuela')
             ->leftjoin('ProyectoCalificacionesDetalle', 'Proyecto.Id', '=', 'ProyectoCalificacionesDetalle.IdProyecto')
             ->where('NombreCorto', 'like', '%' . $this->search . '%')
+            ->orWhere('NombreDescriptivo', 'like', '%' . $this->search . '%')
             ->orWhere('Nombre', 'like', '%' . $this->search . '%')
             ->whereNotNull('NombreCorto')
             ->orderBy('NombreCorto')
@@ -93,7 +94,6 @@ class Proyectos extends Component
 
     public function cerrarModal()
     {
-
         $this->modal = false;
     }
 }

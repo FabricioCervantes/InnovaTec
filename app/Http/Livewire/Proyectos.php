@@ -30,7 +30,6 @@ class Proyectos extends Component
             ->paginate($this->cant);
 
 
-        // $proyectos = DB::table('proyecto')->select('NombreCorto', 'Id', 'NombreDescriptivo')->paginate($this->cant);
 
         return view('livewire.proyectos', compact('proyectos'));
     }

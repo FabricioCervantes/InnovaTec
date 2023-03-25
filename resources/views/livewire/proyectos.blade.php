@@ -50,8 +50,8 @@
                                         <td class="px-10 py-4 capitalize-first max-w-xs">
                                             {{ $item->NombreDescriptivo }}
                                         </td>
-                                        {{-- <td class="whitespace-nowrap px-10 py-4">{{ $item->Nombre }}</td> --}}
-                                        {{-- <td class="whitespace-nowrap px-10 py-4">{{ $item->Calificacion }}</td> --}}
+                                        <td class="whitespace-nowrap px-10 py-4">{{ $item->Nombre }}</td>
+                                        <td class="whitespace-nowrap px-10 py-4">{{ $item->Calificacion }}</td>
                                         <td class="px-10 py-4">
                                             <x-secondary-button wire:click="mostrar('{{ $item->Id }}')"
                                                 type="button">Ver más
@@ -70,11 +70,11 @@
         @if ($modal)
             @include('livewire.mostrar')
         @endif
-        {{-- @if ($proyectos->hasPages())
+        @if ($proyectos->hasPages())
             <div class="p-5">
                 {{ $proyectos->links() }}
             </div>
-        @endif --}}
+        @endif
     </div>
 
 

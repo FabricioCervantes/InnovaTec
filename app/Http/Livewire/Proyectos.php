@@ -27,10 +27,8 @@ class Proyectos extends Component
             ->whereNotNull('NombreCorto')
             ->orderBy('NombreCorto')
             ->select('proyecto.NombreCorto', 'proyecto.Id', 'proyecto.NombreDescriptivo', 'escuelas.Nombre', 'proyectocalificacionesdetalle.Calificacion')
-            ->limit(10)
-            ->get();
+            ->paginate($this->cant);
 
-        // ->paginate($this->cant);
 
         // $proyectos = DB::table('proyecto')->select('NombreCorto', 'Id', 'NombreDescriptivo')->paginate($this->cant);
 

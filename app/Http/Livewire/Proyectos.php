@@ -19,14 +19,14 @@ class Proyectos extends Component
 
     public function render()
     {
-        $proyectos = Proyecto::join('Escuelas', 'Proyecto.IdEscuela', '=', 'Escuelas.IdEscuela')
-            ->leftjoin('ProyectoCalificacionesDetalle', 'Proyecto.Id', '=', 'ProyectoCalificacionesDetalle.IdProyecto')
+        $proyectos = Proyecto::join('escuelas', 'proyecto.IdEscuela', '=', 'escuelas.IdEscuela')
+            ->leftjoin('proyectoCalificacionesDetalle', 'proyecto.Id', '=', 'proyectoCalificacionesDetalle.IdProyecto')
             ->where('NombreCorto', 'like', '%' . $this->search . '%')
             ->orWhere('NombreDescriptivo', 'like', '%' . $this->search . '%')
             ->orWhere('Nombre', 'like', '%' . $this->search . '%')
             ->whereNotNull('NombreCorto')
             ->orderBy('NombreCorto')
-            ->select('Proyecto.NombreCorto', 'Proyecto.Id', 'Proyecto.NombreDescriptivo', 'Escuelas.Nombre', 'ProyectoCalificacionesDetalle.Calificacion')
+            ->select('proyecto.NombreCorto', 'proyecto.Id', 'proyecto.NombreDescriptivo', 'escuelas.Nombre', 'proyectoCalificacionesDetalle.Calificacion')
             ->paginate($this->cant);
 
 

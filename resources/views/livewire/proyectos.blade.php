@@ -51,7 +51,7 @@
                                             {{ $item->NombreDescriptivo }}
                                         </td>
                                         <td class="whitespace-nowrap px-10 py-4">Escuela</td>
-                                        <td class="whitespace-nowrap px-10 py-4">83.5</td>
+                                        <td class="whitespace-nowrap px-10 py-4">{{ $item->Calificacion }}</td>
                                         <td class="px-10 py-4">
                                             <x-secondary-button wire:click="mostrar('{{ $item->Id }}')"
                                                 type="button">Ver más

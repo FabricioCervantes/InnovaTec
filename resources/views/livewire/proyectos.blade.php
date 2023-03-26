@@ -75,8 +75,8 @@
                                     <div class="text-justify"><b>Descripción: </b>{{ $item->NombreDescriptivo }}</div>
                                     <div><b>Institución: </b>{{ $item->Nombre }}</div>
                                     <div><b>Calificación: </b>{{ $item->Calificacion }}</div>
-                                    <x-secondary-button wire:click="mostrar('{{ $item->Id }}')" type="button"
-                                        class="w-1/3">Ver más
+                                    <x-secondary-button wire:click="mostrar('{{ $item->Id }}')" type="button">Ver
+                                        más
                                     </x-secondary-button>
                                 </div>
                             </div>

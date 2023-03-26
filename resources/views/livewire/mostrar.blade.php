@@ -1,5 +1,5 @@
 <div>
-    <x-dialog-modal maxWidth="2xl" wire:model="modal" class="flex sm:items-start md:items-center">
+    <x-dialog-modal maxWidth="2xl" wire:model="modal" class="flex sm:items-center">
         <x-slot name="title">Información del proyecto</x-slot>
         <x-slot name="content">
             <div class="flex gap-2 sm:gap-10 sm:justify-between">

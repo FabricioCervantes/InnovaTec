@@ -76,7 +76,7 @@
                                     <div><b>Institución: </b>{{ $item->Nombre }}</div>
                                     <div><b>Calificación: </b>{{ $item->Calificacion }}</div>
                                     <x-secondary-button wire:click="mostrar('{{ $item->Id }}')" type="button"
-                                        class="w-1/3 sm:w-full">Ver más
+                                        class="mt-1 flex justify-center">Ver más
                                     </x-secondary-button>
                                 </div>
                             </div>

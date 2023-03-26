@@ -1,5 +1,5 @@
 <div>
-    <x-dialog-modal maxWidth="2xl" wire:model="modal" class="sm:block md:flex items-center">
+    <x-dialog-modal maxWidth="2xl" wire:model="modal" class="sm:block md:flex md:items-center">
         <x-slot name="title">Información del proyecto</x-slot>
         <x-slot name="content">
             <div class="flex gap-2 sm:gap-10 sm:justify-between">
@@ -61,7 +61,7 @@
             </div>
         </x-slot>
         <x-slot name="footer">
-            {{-- <x-danger-button wire:click="cerrarModal">Cerrar</x-danger-button> --}}
+            {{-- <x-danger-button class="sm:hidden" wire:click="cerrarModal">Cerrar</x-danger-button> --}}
         </x-slot>
     </x-dialog-modal>
 
